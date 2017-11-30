@@ -7,13 +7,13 @@ all:
 		-e CGO_ENABLED=0 \
 		--rm  \
 		-v "$(PWD):/target" \
-		-v "$(PWD):/app/src/github.com/bankrs/service-discovery-ecs-dns" \
+		-v "$(PWD):/app/src/github.com/awslabs/service-discovery-ecs-dns" \
 		-w /target  \
 		golang:1.9.0 \
 		go build \
 		-o ecssd_agent \
-		github.com/bankrs/service-discovery-ecs-dns
-	 docker build -t bankrs/ecssd_agent:latest .
+		github.com/awslabs/service-discovery-ecs-dns
+	 docker build -t awslabs/ecssd_agent:latest .
 
 install:
 	@go install $(PKGS)
